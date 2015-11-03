@@ -14,40 +14,6 @@ save(data_ex1, file="data_ex1.Rda")
 
 load("data_ex1.Rda")
 
-#plot 1.R
-
-load("data_ex1.Rda")
-
-hist(data_ex1$Global_active_power, main = "Global Active Power", xlab = "Global Active Power (kilowatts)", 
-        ylab = "Frequency", col = 'red')
-
-dev.copy(png, 'plot1.png', width = 480, height = 480)
-dev.off()
-
-#plot2.R
-
-with(data_ex1, plot(Date, Global_active_power, xlab = "", ylab = "Global Active Power (kilowatts)", type = "n"))
-
-with(data_ex1,lines(Date, Global_active_power))
-
-dev.copy(png, 'plot2.png', width = 480, height = 480)
-dev.off()
-
-#plot3.R
-
-with(data_ex1, plot(Date, Sub_metering_1, xlab = "", ylab = "Energy sub metering", type = "n"))
-
-with(data_ex1, lines(Date, Sub_metering_1, col = 'black'))
-     
-with(data_ex1, lines(Date, Sub_metering_2, col = 'red'))
-
-with(data_ex1, lines(Date, Sub_metering_3, col = 'blue'))
-
-legend("topright", lty = c(1,1), col = c("black", "red", "blue"), legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
-
-dev.copy(png, 'plot3.png', width = 480, height = 480)
-dev.off()
-
 # plot4.R
 
 par(mfrow = c(2,2), mar = c(4, 4, 1, 1))
@@ -79,5 +45,3 @@ with(data_ex1,lines(Date, Global_reactive_power))
 
 dev.copy(png, 'plot4.png', width = 480, height = 480)
 dev.off()
-
-
