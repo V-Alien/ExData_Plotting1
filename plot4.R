@@ -16,6 +16,8 @@ load("data_ex1.Rda")
 
 # plot4.R
 
+png('plot4.png', width = 480, height = 480)
+
 par(mfrow = c(2,2), mar = c(4, 4, 1, 1))
 
 with(data_ex1, plot(Date, Global_active_power, xlab = "", ylab = "Global Active Power (kilowatts)", type = "n"))
@@ -23,7 +25,7 @@ with(data_ex1, plot(Date, Global_active_power, xlab = "", ylab = "Global Active 
 with(data_ex1,lines(Date, Global_active_power))
 
 
-with(data_ex1, plot(Date, Voltage, xlab = "", ylab = "Voltage)", type = "n"))
+with(data_ex1, plot(Date, Voltage, ylab = "Voltage", xlab = "datetime", type = "n"))
 
 with(data_ex1,lines(Date, Voltage))
 
@@ -36,12 +38,12 @@ with(data_ex1, lines(Date, Sub_metering_2, col = 'red'))
 
 with(data_ex1, lines(Date, Sub_metering_3, col = 'blue'))
 
-legend("topright", lty = c(1,1), col = c("black", "red", "blue"), legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
+legend("topright", lty = c(1,1), col = c("black", "red", "blue"), legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), text.font = 0.5)
 
 
-with(data_ex1, plot(Date, Global_reactive_power, xlab = "", ylab = "Global_reactive_power", type = "n"))
+with(data_ex1, plot(Date, Global_reactive_power, ylab = "Global_reactive_power", xlab = "datetime", type = "n"))
 
 with(data_ex1,lines(Date, Global_reactive_power))
 
-dev.copy(png, 'plot4.png', width = 480, height = 480)
+
 dev.off()
